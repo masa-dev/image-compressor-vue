@@ -6,7 +6,7 @@
     <main>
       <div class="main-content">
         <DragAndDrop />
-        <SettingInput />
+        <SettingsInput />
       </div>
       <div class="side-content"></div>
     </main>
@@ -22,7 +22,7 @@
 
 <script>
 import DragAndDrop from "./components/DragAndDrop.vue";
-import SettingInput from "./components/SettingInput.vue";
+import SettingsInput from "./components/SettingsInput.vue";
 
 export default {
   name: "App",
@@ -34,7 +34,7 @@ export default {
   },
   components: {
     DragAndDrop,
-    SettingInput,
+    SettingsInput,
   },
 };
 </script>
