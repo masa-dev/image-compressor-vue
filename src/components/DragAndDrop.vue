@@ -53,7 +53,8 @@
       margin-top: 20px;
       font-size: 1.2rem;
 
-      input {
+      > input {
+        background-color: transparent !important;
         font-size: 1em;
         margin: auto;
         overflow-x: hidden;
