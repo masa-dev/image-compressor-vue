@@ -34,7 +34,7 @@
       ></b-form-input>
     </div>
 
-    <div class="form-group">
+    <div class="form-group checkbox">
       <b-form-checkbox
         id="is-only-jpeg"
         name="is-only-jpeg"
@@ -72,8 +72,6 @@ export default {
 
 <style lang="scss" scoped>
 #setting-input {
-  padding: 0 5px;
-
   .costom-range {
     height: 25px;
     flex: none;
@@ -89,6 +87,10 @@ export default {
   .custom-checkbox {
     margin: 5px 0;
     user-select: none;
+  }
+
+  .checkbox {
+    margin: 0;
   }
 }
 </style>
