@@ -1,14 +1,16 @@
 <template>
-  <div>
+  <div id="app">
     <header>
       <h1>JPEG圧縮</h1>
     </header>
     <main>
-      <div class="main-content">
+      <div id="main-content">
         <DragAndDrop />
         <SettingsInput />
+        <SettingsModal />
+        <ExecutionButtons />
       </div>
-      <div class="side-content"></div>
+      <div id="side-content"></div>
     </main>
     <footer></footer>
     <!--
@@ -21,8 +23,10 @@
 </template>
 
 <script>
-import DragAndDrop from "./components/DragAndDrop.vue";
-import SettingsInput from "./components/SettingsInput.vue";
+import DragAndDrop from "@/components/DragAndDrop.vue";
+import SettingsInput from "@/components/SettingsInput.vue";
+import SettingsModal from "@/components/SettingsModal.vue";
+import ExecutionButtons from "@/components/ExecutionButtons";
 
 export default {
   name: "App",
@@ -35,6 +39,8 @@ export default {
   components: {
     DragAndDrop,
     SettingsInput,
+    SettingsModal,
+    ExecutionButtons,
   },
 };
 </script>
@@ -44,34 +50,40 @@ body {
   background-color: white;
   color: black;
 
-  header {
-    > h1 {
-      font-size: 1.9rem;
-      text-align: center;
-      font-weight: bold;
-      margin: 10px auto;
+  #app {
+    > header {
+      > h1 {
+        font-size: 1.9rem;
+        text-align: center;
+        font-weight: bold;
+        margin: 10px auto;
+      }
     }
-  }
 
-  main {
-    width: 900px;
-    margin: auto;
-    overflow: hidden;
-  }
+    > main {
+      width: 900px;
+      margin: auto;
+      overflow: hidden;
 
-  footer {
-    width: 900px;
-    margin: auto;
+      #main-content {
+        padding: 0 10px;
+      }
+    }
+
+    > footer {
+      width: 900px;
+      margin: auto;
+    }
   }
 }
 
 @media screen and (max-width: 900px) {
-  body {
-    main {
+  body #app {
+    > main {
       width: 500px;
     }
 
-    footer {
+    > footer {
       width: 500px;
     }
   }
@@ -82,18 +94,18 @@ body {
     touch-action: manipulation;
   }
   body {
-    header {
+    > header {
       > h1 {
         margin-top: 5px;
         margin-bottom: 0px;
       }
     }
 
-    main {
+    > main {
       width: 100%;
     }
 
-    footer {
+    > footer {
       width: 100%;
     }
   }
