@@ -4,7 +4,12 @@
       >詳細設定</b-button
     >
 
-    <b-modal id="detailed-settings" centered title="詳細設定">
+    <b-modal
+      id="detailed-settings"
+      v-bind:static="true"
+      centered
+      title="詳細設定"
+    >
       <table class="config-list">
         <tr>
           <td class="config-text">ファイル選択時に処理する</td>
@@ -49,6 +54,14 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {};
+  },
+};
+</script>
+
 <style lang="scss">
 #settings-modal {
   text-align: right;
@@ -73,6 +86,7 @@
         padding-bottom: 5px;
         user-select: none;
         height: 2.5rem;
+        text-align: left;
 
         &.config-switch {
           width: 0;
