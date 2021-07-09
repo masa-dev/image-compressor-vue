@@ -5,7 +5,7 @@
       <div id="origin-test-image-wrapper" class="image-wrapper">
         <img
           id="origin-test-image"
-          v-bind:src="imgSrc.original"
+          :src="imgSrc.original"
           alt="圧縮前のイメージ画像"
         />
       </div>
@@ -15,7 +15,7 @@
       <div id="compressed-test-image-wrapper" class="image-wrapper">
         <img
           id="compressed-test-image"
-          v-bind:src="imgSrc.compressed"
+          :src="imgSrc.compressed"
           alt="圧縮後のイメージ画像"
         />
       </div>
