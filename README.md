@@ -1,5 +1,7 @@
 # image-compressor-vue
 
+作成中のコードです。
+
 GitHubに公開している[image-comporessor-js](https://github.com/masa-dev/image-compressor-js)のコードをVue.jsでリファクタリングするリポジトリです。
 
 ## Project setup
