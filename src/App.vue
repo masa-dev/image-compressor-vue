@@ -9,6 +9,8 @@
         <SettingsInput />
         <SettingsModal />
         <ExecutionButtons />
+        <ResultInfo />
+        <FileInfo />
       </div>
       <div id="side-content"></div>
     </main>
@@ -26,7 +28,9 @@
 import DragAndDrop from "@/components/DragAndDrop.vue";
 import SettingsInput from "@/components/SettingsInput.vue";
 import SettingsModal from "@/components/SettingsModal.vue";
-import ExecutionButtons from "@/components/ExecutionButtons";
+import ExecutionButtons from "@/components/ExecutionButtons.vue";
+import ResultInfo from "@/components/ResultInfo.vue";
+import FileInfo from "@/components/FileInfo.vue";
 
 export default {
   name: "App",
@@ -41,6 +45,8 @@ export default {
     SettingsInput,
     SettingsModal,
     ExecutionButtons,
+    ResultInfo,
+    FileInfo,
   },
 };
 </script>
@@ -66,7 +72,16 @@ body {
       overflow: hidden;
 
       #main-content {
+        width: 500px;
+        float: left;
+        margin: 0 auto;
         padding: 0 10px;
+      }
+
+      #side-content {
+        width: 400px;
+        height: auto;
+        float: right;
       }
     }
 
