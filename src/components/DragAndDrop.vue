@@ -4,6 +4,7 @@
     <p>または画像を選択</p>
     <p class="input-p">
       <input
+        @change="changeFiles"
         type="file"
         id="file-input"
         name="image"
@@ -13,6 +14,38 @@
     </p>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      files: [],
+    };
+  },
+  methods: {
+    changeFiles: function (e) {
+      let inputFiles = e.target.files || e.dataTransfer.files;
+
+      // FileListにsortメソッドが無いため、配列に直してソートする
+      inputFiles = [].slice.call(inputFiles).sort((a, b) => {
+        return a.name > b.name ? 1 : -1;
+      });
+
+      this.files.splice(0);
+      this.files.push(...inputFiles);
+
+      this.setImageToStore();
+    },
+    setImageToStore: function () {
+      this.$store.commit({
+        type: "setFiles",
+        images: this.files,
+      });
+      console.log(this.files.length);
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 #drag-and-drop {
