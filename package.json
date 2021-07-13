@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-to-docs": "vue-cli-service build --dest docs",
     "test": "jest",
     "test:unit": "vue-cli-service test:unit",
     "test-with-coverage": "npm test -- --coverage",
