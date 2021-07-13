@@ -12,7 +12,9 @@
         <ResultInfo />
         <FileInfo />
       </div>
-      <div id="side-content"></div>
+      <div id="side-content">
+        <CompareImage />
+      </div>
     </main>
     <footer></footer>
     <!--
@@ -31,6 +33,7 @@ import SettingsModal from "@/components/SettingsModal.vue";
 import ExecutionButtons from "@/components/ExecutionButtons.vue";
 import ResultInfo from "@/components/ResultInfo.vue";
 import FileInfo from "@/components/FileInfo.vue";
+import CompareImage from "@/components/CompareImage.vue";
 
 export default {
   name: "App",
@@ -47,6 +50,7 @@ export default {
     ExecutionButtons,
     ResultInfo,
     FileInfo,
+    CompareImage,
   },
 };
 </script>
