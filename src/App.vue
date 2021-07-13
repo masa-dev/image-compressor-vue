@@ -14,6 +14,7 @@
       </div>
       <div id="side-content">
         <CompareImage />
+        <AdjustParameter />
       </div>
     </main>
     <footer></footer>
@@ -34,6 +35,7 @@ import ExecutionButtons from "@/components/ExecutionButtons.vue";
 import ResultInfo from "@/components/ResultInfo.vue";
 import FileInfo from "@/components/FileInfo.vue";
 import CompareImage from "@/components/CompareImage.vue";
+import AdjustParameter from "@/components/AdjustParameter.vue";
 
 export default {
   name: "App",
@@ -51,6 +53,7 @@ export default {
     ResultInfo,
     FileInfo,
     CompareImage,
+    AdjustParameter,
   },
 };
 </script>
