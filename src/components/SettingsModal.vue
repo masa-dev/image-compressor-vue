@@ -46,7 +46,13 @@
         <b-button variant="secondary" class="float-right" @click="cancel()"
           >キャンセル</b-button
         >
-        <b-button variant="primary" class="float-right" @click="ok()"
+        <b-button
+          variant="primary"
+          class="float-right"
+          @click="
+            ok();
+            updateSettings();
+          "
           >適用</b-button
         >
       </template>
@@ -55,9 +61,25 @@
 </template>
 
 <script>
+import setSettingInStore from "@/util/setSettingInStore.js";
+
 export default {
-  data() {
-    return {};
+  methods: {
+    updateSettings() {
+      setSettingInStore(
+        this.$store,
+        "process-when-file-input",
+        "processWhenFileInput",
+        true
+      );
+      setSettingInStore(this.$store, "hide-file-list", "hideFileList", true);
+      setSettingInStore(
+        this.$store,
+        "call-history-on-setup",
+        "callHistoryOnStartup",
+        true
+      );
+    },
   },
 };
 </script>
