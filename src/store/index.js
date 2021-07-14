@@ -34,6 +34,15 @@ const store = new Vuex.Store({
       console.log(files);
       state.imageFiles.push(...files.images);
     },
+    setSettings(state, setting) {
+      const varName = setting.varName;
+      const value = setting.value;
+
+      if (typeof state.settings[varName] === "undefined")
+        throw new Error("変数varNameの値を持つプロパティが存在しません。");
+
+      state.settings[varName] = value;
+    },
   },
   actions: {}, //非同期処理
   modules: {},
