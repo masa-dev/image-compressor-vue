@@ -29,7 +29,10 @@ test("作成したDOMのテスト", () => {
 // input var: setSettingInStore(store, id, varName, isCheckbox)
 describe("setSettingInStoreのテスト", () => {
   // 設定の初期化
-  clearStoreSettings();
+  for (let propName in store.state.settings) {
+    store.state.settings[propName] = null;
+  }
+
   test("入力値が正常の場合", () => {
     // checked が true
     setSettingInStore(store, "sample-checkbox-true", "hideFileList", true);
@@ -53,8 +56,6 @@ describe("setSettingInStoreのテスト", () => {
     expect(store.state.settings.quality).toBe("0.8");
   });
 
-  // 設定の初期化
-  clearStoreSettings();
   test("入力値が異常の場合", () => {
     // varName（変数名）が文字列でない
     expect(() =>
@@ -67,10 +68,3 @@ describe("setSettingInStoreのテスト", () => {
     ).toThrow(Error);
   });
 });
-
-// store.state.settings 内のすべてのプロパティの値を null にする
-function clearStoreSettings() {
-  for (let propName in store.state.settings) {
-    store.state.settings[propName] = null;
-  }
-}
