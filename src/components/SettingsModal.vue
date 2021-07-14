@@ -15,7 +15,7 @@
           <td class="config-text">ファイル選択時に処理する</td>
           <td class="config-switch">
             <b-form-checkbox
-              id="processing-file-input"
+              id="process-when-file-input"
               switch
               size="lg"
             ></b-form-checkbox>
@@ -35,7 +35,7 @@
           <td class="config-text">起動時に設定履歴を呼び出す</td>
           <td class="config-switch">
             <b-form-checkbox
-              id="apply-history"
+              id="call-history-on-setup"
               switch
               size="lg"
             ></b-form-checkbox>
