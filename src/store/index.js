@@ -6,7 +6,21 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     imageFiles: [],
-    num: 10,
+    processing: false,
+    settings: {
+      quality: 0.8,
+      maxWidth: Infinity,
+      maxHeight: Infinity,
+      isOnlyJpeg: true,
+      convertAlltoJpeg: false,
+      processWhenFileInput: true,
+      hideFileList: false,
+      callHistoryOnStartup: true,
+    },
+    test: {
+      imageSrc: "",
+      page: 0,
+    },
   },
   getters: {
     getFilesLength: (state) => {
