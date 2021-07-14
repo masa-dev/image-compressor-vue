@@ -17,11 +17,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      files: [],
-    };
-  },
   methods: {
     changeFiles: function (e) {
       let inputFiles = e.target.files || e.dataTransfer.files;
@@ -31,17 +26,11 @@ export default {
         return a.name > b.name ? 1 : -1;
       });
 
-      this.files.splice(0);
-      this.files.push(...inputFiles);
-
-      this.setImageToStore();
-    },
-    setImageToStore: function () {
+      // Vuexのstoreに値を持たせる
       this.$store.commit({
         type: "setFiles",
-        images: this.files,
+        images: inputFiles,
       });
-      console.log(this.files.length);
     },
   },
 };
