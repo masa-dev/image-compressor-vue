@@ -53,6 +53,13 @@
         >すべてJPEG形式に変換<sup>（注意）</sup></b-form-checkbox
       >
     </div>
+
+    <div id="input-parameter-info">
+      <p class="attention">
+        ※<strong>JPEG形式以外</strong>は品質による圧縮が出来ません
+      </p>
+      <p class="attention">※JPEG形式に変換すると透過度が保てません</p>
+    </div>
   </div>
 </template>
 
@@ -90,7 +97,15 @@ export default {
   }
 
   .checkbox {
-    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  #input-parameter-info {
+    p.attention {
+      color: #999;
+      font-size: small;
+      margin-bottom: 5px;
+    }
   }
 }
 </style>
