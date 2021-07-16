@@ -18,9 +18,6 @@
       </div>
     </main>
     <footer></footer>
-    <!--
-  <HelloWorld msg="Welcome to Your Vue.js App" />
-  -->
     <div>
       {{ num }}
     </div>
@@ -39,12 +36,7 @@ import AdjustParameter from "@/components/AdjustParameter.vue";
 
 export default {
   name: "App",
-  computed: {
-    num() {
-      return this.$store.getters.getFilesLength;
-      //return this.$store.state.num;
-    },
-  },
+  computed: {},
   components: {
     DragAndDrop,
     SettingsInput,
