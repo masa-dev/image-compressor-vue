@@ -16,6 +16,7 @@
           <td class="config-switch">
             <b-form-checkbox
               id="process-when-file-input"
+              v-model="processWhenFileInput"
               switch
               size="lg"
             ></b-form-checkbox>
@@ -26,6 +27,7 @@
           <td class="config-switch">
             <b-form-checkbox
               id="hide-file-list"
+              v-model="hideFileList"
               switch
               size="lg"
             ></b-form-checkbox>
@@ -36,6 +38,7 @@
           <td class="config-switch">
             <b-form-checkbox
               id="call-history-on-setup"
+              v-model="callHistoryOnStartup"
               switch
               size="lg"
             ></b-form-checkbox>
@@ -64,20 +67,25 @@
 import setSettingInStore from "@/util/setSettingInStore.js";
 
 export default {
+  data() {
+    return {
+      processWhenFileInput: true,
+      hideFileList: false,
+      callHistoryOnStartup: true,
+    };
+  },
   methods: {
     updateSettings() {
       setSettingInStore(
         this.$store,
-        "process-when-file-input",
         "processWhenFileInput",
-        true
+        this.processWhenFileInput
       );
-      setSettingInStore(this.$store, "hide-file-list", "hideFileList", true);
+      setSettingInStore(this.$store, "hideFileList", this.hideFileList);
       setSettingInStore(
         this.$store,
-        "call-history-on-setup",
         "callHistoryOnStartup",
-        true
+        this.callHistoryOnStartup
       );
     },
   },

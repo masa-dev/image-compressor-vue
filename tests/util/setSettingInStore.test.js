@@ -12,21 +12,8 @@ import store from "@/store/index.js";
   "callHistoryOnStartup",
 ];*/
 
-document.body.innerHTML = `<div>
-  <input id="sample-checkbox-true" type="checkbox" checked>
-  <input id="sample-checkbox-false" type="checkbox">
-  <input id="sample-input-number" type="number" value="123">
-  <input id="sample-input-range" type="number" value="0.8">  
-</div>`;
+// input var: setSettingInStore(store, varName, value)
 
-test("作成したDOMのテスト", () => {
-  expect(document.getElementById("sample-checkbox-true").checked).toBe(true);
-  expect(document.getElementById("sample-checkbox-false").checked).toBe(false);
-  expect(document.getElementById("sample-input-number").value).toBe("123");
-  expect(document.getElementById("sample-input-range").value).toBe("0.8");
-});
-
-// input var: setSettingInStore(store, id, varName, isCheckbox)
 describe("setSettingInStoreのテスト", () => {
   // 設定の初期化
   for (let propName in store.state.settings) {
@@ -34,37 +21,26 @@ describe("setSettingInStoreのテスト", () => {
   }
 
   test("入力値が正常の場合", () => {
-    // checked が true
-    setSettingInStore(store, "sample-checkbox-true", "hideFileList", true);
+    // boolean
+    setSettingInStore(store, "hideFileList", true);
     expect(store.state.settings.hideFileList).toBe(true);
 
-    // checked が false
-    setSettingInStore(
-      store,
-      "sample-checkbox-false",
-      "callHistoryOnStartup",
-      true
-    );
-    expect(store.state.settings.callHistoryOnStartup).toBe(false);
+    // Number
+    setSettingInStore(store, "maxWidth", 1000);
+    expect(store.state.settings.maxWidth).toBe(1000);
 
-    // 数字の入力
-    setSettingInStore(store, "sample-input-number", "maxWidth");
-    expect(store.state.settings.maxWidth).toBe("123");
-
-    // 範囲の入力
-    setSettingInStore(store, "sample-input-range", "quality");
-    expect(store.state.settings.quality).toBe("0.8");
+    // Range
+    setSettingInStore(store, "quality", 0.9);
+    expect(store.state.settings.quality).toBe(0.9);
   });
 
   test("入力値が異常の場合", () => {
-    // varName（変数名）が文字列でない
-    expect(() =>
-      setSettingInStore(store, "sample-checkbox-true", 100, true)
-    ).toThrow(TypeError);
+    // varName（引数）が文字列でない
+    expect(() => setSettingInStore(store, 100, 1000)).toThrow(TypeError);
 
-    // varName（変数名）が存在しない
-    expect(() =>
-      setSettingInStore(store, "sample-input-number", "dammyPropName")
-    ).toThrow(Error);
+    // varName（引数）が存在しない値
+    expect(() => setSettingInStore(store, "wrongPropName", 1000)).toThrow(
+      Error
+    );
   });
 });

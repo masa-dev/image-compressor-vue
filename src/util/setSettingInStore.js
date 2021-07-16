@@ -1,8 +1,4 @@
-function setSettingInStore(store, id, varName, isCheckbox = false) {
-  const value = isCheckbox
-    ? document.getElementById(id).checked
-    : document.getElementById(id).value;
-
+function setSettingInStore(store, varName, value) {
   if (typeof varName !== "string")
     throw new TypeError("引数の型が正しくありません。");
   if (typeof store.state.settings[varName] === "undefined")
