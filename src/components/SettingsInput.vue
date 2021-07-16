@@ -61,6 +61,8 @@
 </template>
 
 <script>
+import setSettingInStore from "@/util/setSettingInStore.js";
+
 export default {
   data() {
     return {
@@ -71,7 +73,21 @@ export default {
       convertAlltoJpeg: false,
     };
   },
-  methods: {},
+  methods: {
+    updateSettings() {
+      let propList = [
+        { value: this.quality, name: "quality" },
+        { value: this.maxWidth, name: "maxWidth" },
+        { value: this.maxHeight, name: "maxHeight" },
+        { value: this.isOnlyJpeg, name: "isOnlyJpeg" },
+        { value: this.convertAlltoJpeg, name: "convertAlltoJpeg" },
+      ];
+
+      for (let prop of propList) {
+        setSettingInStore(this.$store, prop.name, prop.value);
+      }
+    },
+  },
 };
 </script>
 
