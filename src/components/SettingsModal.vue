@@ -76,17 +76,15 @@ export default {
   },
   methods: {
     updateSettings() {
-      setSettingInStore(
-        this.$store,
-        "processWhenFileInput",
-        this.processWhenFileInput
-      );
-      setSettingInStore(this.$store, "hideFileList", this.hideFileList);
-      setSettingInStore(
-        this.$store,
-        "callHistoryOnStartup",
-        this.callHistoryOnStartup
-      );
+      let propList = [
+        { value: this.processWhenFileInput, name: "processWhenFileInput" },
+        { value: this.hideFileList, name: "hideFileList" },
+        { value: this.callHistoryOnStartup, name: "callHistoryOnStartup" },
+      ];
+
+      for (let prop of propList) {
+        setSettingInStore(this.$store, prop.name, prop.value);
+      }
     },
   },
 };
