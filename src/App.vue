@@ -18,9 +18,6 @@
       </div>
     </main>
     <footer></footer>
-    <div>
-      {{ num }}
-    </div>
   </div>
 </template>
 
