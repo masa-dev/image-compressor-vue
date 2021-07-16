@@ -8,6 +8,7 @@
         value="0.8"
         min="0"
         max="1"
+        @input="updateSettings"
         step="0.1"
         v-model.number="quality"
       ></b-form-input>
@@ -21,6 +22,7 @@
         min="0"
         placeholder="Infinity"
         v-model.number="maxWidth"
+        @input="updateSettings"
       ></b-form-input>
     </div>
 
@@ -32,6 +34,7 @@
         min="0"
         placeholder="Infinity"
         v-model.number="maxHeight"
+        @input="updateSettings"
       ></b-form-input>
     </div>
 
@@ -40,6 +43,7 @@
         id="is-only-jpeg"
         name="is-only-jpeg"
         v-model="isOnlyJpeg"
+        @input="updateSettings"
         >JPEG形式のみ処理を行う</b-form-checkbox
       >
 
@@ -47,6 +51,7 @@
         id="convert-all-to-jpeg"
         name="convert-all-to-jpeg"
         v-model="convertAlltoJpeg"
+        @input="updateSettings"
         >すべてJPEG形式に変換<sup>（注意）</sup></b-form-checkbox
       >
     </div>

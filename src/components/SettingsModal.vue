@@ -19,6 +19,7 @@
               v-model="processWhenFileInput"
               switch
               size="lg"
+              @input="updateSettings"
             ></b-form-checkbox>
           </td>
         </tr>
@@ -30,6 +31,7 @@
               v-model="hideFileList"
               switch
               size="lg"
+              @input="updateSettings"
             ></b-form-checkbox>
           </td>
         </tr>
@@ -41,6 +43,7 @@
               v-model="callHistoryOnStartup"
               switch
               size="lg"
+              @input="updateSettings"
             ></b-form-checkbox>
           </td>
         </tr>
