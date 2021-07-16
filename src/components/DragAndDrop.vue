@@ -28,7 +28,7 @@ export default {
 
       // Vuexのstoreに値を持たせる
       this.$store.commit({
-        type: "setFiles",
+        type: "setInputImages",
         images: inputFiles,
       });
     },

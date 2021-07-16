@@ -3,21 +3,21 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-const inputFile = {
+const files = {
   state: () => ({
-    originImages: [],
+    inputImages: [],
     compressedImages: [],
   }),
   getters: {
-    getFilesLength: (state) => {
-      return state.originImages.length;
+    getInputImagesLength: (state) => {
+      return state.inputImages.length;
     },
   },
   mutations: {
-    setFiles(state, files = []) {
-      state.originImages.splice(0, state.originImages.length);
+    setInputImages(state, files = []) {
+      state.inputImages.splice(0, state.inputImages.length);
       console.log(files);
-      state.originImages.push(...files.images);
+      state.inputImages.push(...files.images);
     },
   },
   actions: {},
@@ -65,7 +65,7 @@ const store = new Vuex.Store({
   mutations: {},
   actions: {},
   modules: {
-    inputFile,
+    files,
     settings,
     sideContent,
   },
