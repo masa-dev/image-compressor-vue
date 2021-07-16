@@ -5,12 +5,11 @@
       <b-form-input
         type="range"
         id="quality"
-        v-model="quality"
         value="0.8"
         min="0"
         max="1"
         step="0.1"
-        name=""
+        v-model.number="quality"
       ></b-form-input>
     </div>
 
@@ -21,6 +20,7 @@
         id="max-width"
         min="0"
         placeholder="Infinity"
+        v-model.number="maxWidth"
       ></b-form-input>
     </div>
 
@@ -31,6 +31,7 @@
         id="max-height"
         min="0"
         placeholder="Infinity"
+        v-model.number="maxHeight"
       ></b-form-input>
     </div>
 
@@ -38,8 +39,6 @@
       <b-form-checkbox
         id="is-only-jpeg"
         name="is-only-jpeg"
-        value="true"
-        unchecked-value="false"
         v-model="isOnlyJpeg"
         >JPEG形式のみ処理を行う</b-form-checkbox
       >
@@ -47,8 +46,6 @@
       <b-form-checkbox
         id="convert-all-to-jpeg"
         name="convert-all-to-jpeg"
-        value="true"
-        unchecked-value="false"
         v-model="convertAlltoJpeg"
         >すべてJPEG形式に変換<sup>（注意）</sup></b-form-checkbox
       >
@@ -68,7 +65,8 @@ export default {
   data() {
     return {
       quality: 0.8,
-      value: Infinity,
+      maxWidth: Infinity,
+      maxHeight: Infinity,
       isOnlyJpeg: false,
       convertAlltoJpeg: false,
     };
