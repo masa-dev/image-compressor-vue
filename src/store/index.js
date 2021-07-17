@@ -19,6 +19,11 @@ const files = {
       console.log(files);
       state.inputImages.push(...files.images);
     },
+    setCompressedImages(state, files = []) {
+      state.compressedImages.splice(0, state.inputImages.length);
+      console.log(files);
+      state.compressedImages.push(...files.images);
+    },
   },
   actions: {},
 };
