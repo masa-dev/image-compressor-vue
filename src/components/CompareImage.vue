@@ -5,6 +5,7 @@
       <div class="image-wrapper">
         <img
           id="origin-test-image"
+          class="test-image"
           :src="imgSrc.original"
           alt="圧縮前のイメージ画像"
         />
@@ -15,6 +16,7 @@
       <div class="image-wrapper">
         <img
           id="compressed-test-image"
+          class="test-image"
           :src="imgSrc.compressed"
           alt="圧縮後のイメージ画像"
         />
@@ -28,8 +30,8 @@ export default {
   data() {
     return {
       imgSrc: {
-        original: "",
-        compressed: "",
+        original: require("../assets/img/default_image.jpg"),
+        compressed: require("../assets/img/default_image.jpg"),
       },
     };
   },

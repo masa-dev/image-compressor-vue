@@ -12,7 +12,8 @@
       <b-form-input
         type="range"
         id="display-scale"
-        v-model="displayScale"
+        v-model.number="displayScale"
+        @input="changeDisplayScale"
         value="1.0"
         min="1"
         max="10"
@@ -53,10 +54,18 @@ export default {
       displayScale: 1,
     };
   },
+  methods: {
+    changeDisplayScale() {
+      const imgElements = document.getElementsByClassName("test-image");
+      const scale = this.displayScale;
+      for (let element of imgElements) {
+        element.style.transform = `scale(${scale}, ${scale})`;
+      }
+    },
+  },
   computed: {
     getDisplayScale() {
-      let num = parseFloat(this.displayScale);
-      return num.toFixed(1);
+      return this.displayScale.toFixed(1);
     },
   },
 };
