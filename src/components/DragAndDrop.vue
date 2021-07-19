@@ -1,5 +1,10 @@
 <template>
-  <div id="drag-and-drop">
+  <div
+    id="drag-and-drop"
+    @dragover="dragOverFiles"
+    @dragleave="dragLeaveFiles"
+    @drop="dropFiles"
+  >
     <p>ここに画像をドロップ</p>
     <p>または画像を選択</p>
     <p class="input-p">
@@ -16,9 +21,33 @@
 </template>
 
 <script>
+import compressImages from "@/util/compressImages.js";
+
 export default {
   methods: {
-    changeFiles: function (e) {
+    dragOverFiles(e) {
+      e.preventDefault();
+      let element = document.getElementById("drag-and-drop");
+
+      element.classList.add("active");
+    },
+    dragLeaveFiles(e) {
+      e.preventDefault();
+      let element = document.getElementById("drag-and-drop");
+
+      element.classList.remove("active");
+    },
+    dropFiles(e) {
+      e.preventDefault();
+      let dragElement = document.getElementById("drag-and-drop");
+      let inputElement = document.getElementById("file-input");
+
+      dragElement.classList.remove("active");
+      inputElement.files = e.target.files || e.dataTransfer.files;
+
+      this.changeFiles(e);
+    },
+    changeFiles(e) {
       let inputFiles = e.target.files || e.dataTransfer.files;
 
       // FileListにsortメソッドが無いため、配列に直してソートする
@@ -31,6 +60,9 @@ export default {
         type: "setInputImages",
         images: inputFiles,
       });
+
+      // 画像圧縮
+      compressImages(this.$store, /* isInputFile = */ true);
     },
   },
 };
