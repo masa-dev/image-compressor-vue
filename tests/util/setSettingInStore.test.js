@@ -15,10 +15,12 @@ import store from "@/store/index.js";
 // input var: setSettingInStore(store, varName, value)
 
 describe("setSettingInStoreのテスト", () => {
-  // 設定の初期化
-  for (let propName in store.state.settings) {
-    store.state.settings[propName] = null;
-  }
+  test("設定の初期化", () => {
+    for (let propName in store.state.settings) {
+      setSettingInStore(store, propName, null);
+      expect(store.state.settings[propName]).toBe(null);
+    }
+  });
 
   test("入力値が正常の場合", () => {
     // boolean
