@@ -19,9 +19,19 @@ npm run serve
 npm run build
 ```
 
+### Build to the docs folder
+```
+npm run build-to-docs
+```
+
 ### Run your unit tests
 ```
 npm run test:unit
+```
+
+### Run test with coverage
+```
+npm run test-with-coverage
 ```
 
 ### Lints and fixes files
