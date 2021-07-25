@@ -35,7 +35,7 @@ function compressImages(store, isInputFile = false) {
     return;
   }
 
-  new Promise((resolve) => {
+  return new Promise((resolve) => {
     let completedCount = 0;
 
     for (const file of files) {
