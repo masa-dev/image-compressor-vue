@@ -9,7 +9,8 @@ export default class Compressor {
     const { file, options } = this;
 
     if (file.type == "error") {
-      options.error.call(Error("error"));
+      const error = new Error("error");
+      options.error.call(this, error);
     }
     if (file) {
       options.success.call(this, file);
