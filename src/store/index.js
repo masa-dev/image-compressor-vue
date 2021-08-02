@@ -14,11 +14,11 @@ const files = {
     },
   },
   mutations: {
-    setInputImages(state, files = []) {
+    setInputImages(state, files) {
       state.inputImages.splice(0);
       state.inputImages.push(...files.images);
     },
-    setCompressedImages(state, files = []) {
+    setCompressedImages(state, files) {
       state.compressedImages.splice(0);
       state.compressedImages.push(...files.images);
     },
