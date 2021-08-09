@@ -45,7 +45,8 @@ function compressImages(store, isInputFile = false) {
           // TODO: 拒否した場合の処理
           completedCount++;
           if (completedCount === files.length) resolve();
-          break;
+
+          continue;
         }
       }
 
