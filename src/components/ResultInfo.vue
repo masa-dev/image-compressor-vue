@@ -2,8 +2,8 @@
   <div id="result-info">
     <p class="result-text" v-if="seen">
       合計で&nbsp;<span class="result-percent"
-        >{{ totalSize.renamed }}({{
-          differencePercent
+        >{{ computeTotalDifferenceSize }}&nbsp;({{
+          computeDifferencePercent
         }}%)&nbsp;圧縮しました</span
       ><sup>（{{ quantity.finished }} / {{ quantity.total }}）</sup>
     </p>
@@ -11,19 +11,31 @@
 </template>
 
 <script>
+import calculateSize from "@/util/calculateSize";
+
 export default {
   data() {
     return {
       seen: true,
-      totalSize: {
-        renamed: "totalSize.renamed",
-      },
-      differencePercent: "100",
       quantity: {
         finished: "finished",
         total: "total",
       },
     };
+  },
+  computed: {
+    computeTotalDifferenceSize() {
+      const compressedSize = this.$store.getters.computeTotalCompressedSize;
+      const inputSize = this.$store.getters.computeTotalInputSize;
+
+      return calculateSize(inputSize - compressedSize);
+    },
+    computeDifferencePercent() {
+      const compressedSize = this.$store.getters.computeTotalCompressedSize;
+      const totalSize = this.$store.getters.computeTotalInputSize;
+
+      return Math.floor((compressedSize / totalSize) * 100 * 10) / 10;
+    },
   },
 };
 </script>
