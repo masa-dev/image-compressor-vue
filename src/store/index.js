@@ -64,11 +64,16 @@ const files = {
 
 const filesInfo = {
   state: () => ({
-    fileList: [],
+    fileList: [{ name: "name", size: 1000, compressedSize: 21 }],
+    seen: false,
   }),
   getters: {},
   mutations: {
-    addFileData(state, inputFiles) {
+    setFileData(state, inputFiles) {
+      // 初期化
+      state.fileList = [];
+      state.seen = true;
+
       // 必要な情報を持ったコピー配列を作成
       let files = [];
       for (let file of inputFiles) {

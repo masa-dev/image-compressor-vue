@@ -7,12 +7,15 @@
           <td class="file-size">{{ file.size }}</td>
           <td class="compressed-size">{{ file.compressedSize }}</td>
           <td class="progress-info">
-            <b-progress
-              :value="100"
-              variant="info"
-              :animated="animate"
-              class=""
-            ></b-progress>
+            <b-progress>
+              <b-progress-bar
+                :value="100"
+                variant="info"
+                striped
+                :animated="animate"
+                >{{ file.status }}</b-progress-bar
+              >
+            </b-progress>
           </td>
         </tr>
       </tbody>
@@ -24,10 +27,16 @@
 export default {
   data() {
     return {
-      seen: true,
       animate: true,
-      fileList: [{ name: "name", size: 1000, compressedSize: 21 }],
     };
+  },
+  computed: {
+    fileList() {
+      return this.$store.state.filesInfo.fileList;
+    },
+    seen() {
+      return this.$store.state.filesInfo.seen;
+    },
   },
 };
 </script>
@@ -35,6 +44,8 @@ export default {
 <style lang="scss" scoped>
 #files-info {
   table {
+    margin-bottom: 15px;
+
     &.file-info-table {
       width: 100%;
       border: solid 1px rgb(194, 194, 194);

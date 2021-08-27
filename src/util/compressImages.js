@@ -39,6 +39,8 @@ function compressImages(store, isInputFile = false) {
       resolve();
     }
 
+    store.commit("setFileData", files);
+
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
 
